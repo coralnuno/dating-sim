@@ -6,7 +6,7 @@ import pygame, sys
 class Game: 
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((1280,720))
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
 
 
@@ -15,6 +15,7 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                    sys.exit()
 
 
             dt = self.clock.tick() / 1000
