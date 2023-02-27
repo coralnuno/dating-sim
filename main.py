@@ -1,15 +1,20 @@
 #BASIC SET UP FOR GAME 
 
 #Importing and initiallizing pygame 
-import pygame, sys 
+import pygame, sys
+from settings import *
+from level import Level
+
 
 class Game: 
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+        pygame.display.set_caption('dating sim')
         self.clock = pygame.time.Clock()
+        self.level = level()
 
-
+ 
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -19,6 +24,7 @@ class Game:
 
 
             dt = self.clock.tick() / 1000
+            self.level.run(dt)
             pygame.display.update()
 
 if __name__ == '__main__':
